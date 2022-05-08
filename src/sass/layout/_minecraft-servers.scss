@@ -1,0 +1,58 @@
+.minecraft-servers {
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .minecraft-server-preview {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    color: #0e0e0e;
+    display: block;
+    text-decoration: none;
+  }
+}
+
+.minecraft-server-detail {
+  .title {
+    font-size: 2.7rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .badge.bg-primary {
+    font-size: 22px;
+    .lds-roller {
+      width: 26px;
+      height: 10px;
+      transform: scale(0.35);
+      top: -15px;
+      right: 4px;
+      div:after {
+        background: #fff;
+      }
+    }
+  }
+
+  .server-settings {
+    .server-setting {
+      display: flex;
+      border: 1px solid #ddd;
+      border-bottom: none;
+      padding: 15px;
+
+      .key {
+        font-weight: bold;
+        text-transform: capitalize;
+        min-width: 200px;
+      }
+      .value {
+      }
+
+      &:last-child {
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+image: node:15.2.0
+stages:
+  - codecheck
+
+run_prettier:
+  stage: codecheck
+  tags:
+    - gitlab-org
+  script:
+    - chmod +x ido.sh
+    - npm ci
+    - ./ido.sh prettier check
+
+run_eslint:
+  stage: codecheck
+  tags:
+    - gitlab-org
+  script:
+    - chmod +x ido.sh
+    - npm ci
+    - ./ido.sh eslint check

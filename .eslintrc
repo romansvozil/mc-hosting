@@ -1,0 +1,171 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "jsx": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2020": true,
+    "jest": true
+  },
+  "plugins": [
+    "prettier",
+    "@typescript-eslint",
+    "import",
+    "react",
+    "react-hooks",
+    "react-redux",
+    "jest"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-redux/recommended"
+  ],
+  "globals": {
+    "document": true,
+    "window": true,
+    "JSX": true
+  },
+  "rules": {
+    /* https://stackoverflow.com/questions/63961803/eslint-says-all-enums-in-typescript-app-are-already-declared-in-the-upper-scope */
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-empty-function": "warn",
+    "@typescript-eslint/no-empty-interface": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "classes": true,
+        "functions": false,
+        "variables": false
+      }
+    ],
+    "@typescript-eslint/no-var-requires": "error",
+
+
+    "import/extensions": [
+      "warn",
+      "always",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-duplicates": "error",
+    "import/no-dynamic-require": "error",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "error",
+    "import/prefer-default-export": "warn",
+
+
+    "jsx-a11y/anchor-is-valid": [
+      "off",
+      {
+        "aspects": [
+          "noHref",
+          "invalidHref",
+          "preferButton"
+        ],
+        "components": [
+          "Link"
+        ],
+        "specialLink": []
+      }
+    ],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/interactive-supports-focus": "off",
+    "jsx-a11y/no-autofocus": [
+      "off",
+      {}
+    ],
+
+    "react/button-has-type": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-key": [
+      "error",
+      {
+        "checkFragmentShorthand": true,
+        "checkKeyMustBeforeSpread": true,
+        "warnOnDuplicates": true
+      }
+    ],
+    "react/jsx-no-target-blank": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "react/no-access-state-in-setstate": "warn",
+    "react/no-array-index-key": "off",
+    "react/no-string-refs": [
+      "warn",
+      {
+        "noTemplateLiterals": false
+      }
+    ],
+    "react/no-unused-prop-types": "off",
+    "react/no-unused-state": "warn",
+    "react/prefer-stateless-function": [
+      "warn",
+      {
+        "ignorePureComponents": true
+      }
+    ],
+    "react/prop-types": [
+      "warn",
+      {}
+    ],
+    "react/react-in-jsx-scope": "warn",
+    "react/require-default-props": "off",
+    // no neccessay, since we prefer stateless function to classes
+    "react/state-in-constructor": "off",
+
+
+    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/rules-of-hooks": "error",
+
+    "react-redux/useSelector-prefer-selectors": [
+      "off", {}
+    ],
+
+    "prettier/prettier": "error",
+
+    "no-console": "warn",
+    "class-methods-use-this": "warn",
+    "no-nested-ternary": "warn",
+    "no-alert": "error",
+    "no-plusplus": "off",
+    "no-magic-numbers": "off",
+    "no-underscore-dangle": "error",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowTaggedTemplates": true
+      }
+    ],
+    "consistent-return": "warn",
+    // have to be turned off, due to @typescript-eslint/no-use-before-define
+    "no-use-before-define": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["@components"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    },
+    "react": {
+      "version": "17.0.2"
+    }
+  }
+}
