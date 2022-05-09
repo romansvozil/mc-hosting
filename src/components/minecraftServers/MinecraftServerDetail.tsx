@@ -31,7 +31,16 @@ function MinecraftServerDetail() {
   const [minecraftServer, setMinecraftServer] = useState<MinecraftServer | null>(null);
   const token = useRecoilValue(authToken);
 
-  const { lastMessage, readyState } = useWebSocket('wss://mc-hosting.webpubsub.azure.com/client/hubs/main?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJ3c3M6Ly9tYy1ob3N0aW5nLndlYnB1YnN1Yi5henVyZS5jb20vY2xpZW50L2h1YnMvbWFpbiIsImlhdCI6MTY1MTg1NTkyNywiZXhwIjoxNjUxOTQyMzI3fQ.SAf-E6_VhzrQVTV1zyi5A-8ZGL4EAhj6PG-gDbqsHxc', {
+  const [negotiateToken, setNegotiateToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    axios.get(`${config.api.urlW}negotiate`)
+      .then((res) => {
+        setNegotiateToken(res.data.url);
+      })
+  }, [setNegotiateToken]);
+
+  const { lastMessage, readyState } = useWebSocket(negotiateToken, {
     protocols: 'json.webpubsub.azure.v1'
   });
 
